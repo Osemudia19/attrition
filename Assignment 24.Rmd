@@ -1,0 +1,66 @@
+---
+title: "assignment"
+output: html_document
+date: "2024-09-09"
+---
+
+`
+```{r}
+library("tidyverse")
+
+```
+```{r}
+supermat <- read.csv(file.choose())
+```
+
+```{r}
+##Q 1: check the structure
+str(supermat)
+```
+
+
+```{r}
+## Q2 ;check for the number of rows
+head(supermat)
+
+```
+
+```{r}
+## Q3: check for the number of rows and columns in the dataset
+nrow(supermat)
+ncol(supermat)
+```
+
+```{r}
+## Q4:get the names for columns in the dataset
+colnames(supermat)
+
+```
+
+```{r}
+## Q5:show how many females bought from production department
+supermat %>%
+  filter(Gender == "F" )%>%
+  group_by(Product.Department)%>%
+  summarise(count =n())
+  
+
+```
+
+```{r}
+  ##Q6; Get the total unit sold by country
+Gender_units_sold  <- supermat %>%
+group_by(Gender)%>%
+  summarise(Units.Sold= sum(supermat))%>%
+arrange(desc(Units.Sold))
+Gender_units_sold
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
